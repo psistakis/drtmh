@@ -98,7 +98,8 @@ void RWorker::init_rdma(char *rbuffer,uint64_t rbuf_size) {
 
   choose_rnic_port();
 
-  RdmaCtrl::DevIdx idx = cm_->convert_port_idx(use_port_);
+  // RdmaCtrl::DevIdx idx = cm_->convert_port_idx(use_port_);
+  RdmaCtrl::DevIdx idx = RdmaCtrl::DevIdx{.dev_id = 0, .port_id=1};
   LOG(0) << "worker " << worker_id_ << " uses " << "["
          << idx.dev_id << "," << idx.port_id << "]";
 
